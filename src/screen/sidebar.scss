@@ -1,0 +1,124 @@
+.sidebar {
+    width: 20%;
+    height: 100%;
+    .button {
+        button {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.9vw;
+            padding: 14px;
+            border-radius: 13px;
+            border: none;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            transition: 300ms ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #edf2fc;
+        }
+    }
+
+    .copm {
+        button {
+            width: 80%;
+            display: flex;
+            align-items: center;
+            margin-top: 7px;
+            // background-color: #edf2fc;
+            padding: 3px 10px;
+            border-radius: 20px;
+            gap: 1.2vw;
+            border: none;
+            cursor: pointer;
+            transition: 300ms ease;
+        }
+
+        button:hover{
+            background-color: grey;
+            opacity: 0.7;
+        }
+
+        button:nth-child(1){
+            margin-top: 3vh;
+        }
+
+        button:nth-child(4){
+            margin-top: 5vh;
+        }
+    }
+
+    .strg{
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        margin-top: 7vh;
+        margin-left: 1vw;
+
+        button{
+            padding: 10px 25px;
+            border-radius: 20px;
+            background-color: transparent;
+            color: #0B57D8;
+            border: 1px solid #000;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 300ms ease;
+        }
+
+        button:hover{
+            background-color: #0B57D8;
+            color: white;
+            border: #0B57D8;
+        }
+    }
+}
+
+.popup{
+    position: absolute;
+    top: 30%;
+    left: 11%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+    gap: 4vh;
+    border: thin solid grey;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    input{
+        width: 13vw;
+        padding: 5px;
+    }
+
+    .button{
+        width: 13vw;
+        padding: 7px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #0084FF;
+    }
+
+    .uploading{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 13vw;
+        padding: 7px;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        background-color: #32CD32;
+        font-size: 0.9rem;
+    }  
+}
