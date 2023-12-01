@@ -41,12 +41,29 @@
     }
 
 
-    .component{
+    .setting{
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 2vw;
+        gap: 1vw;
         font-size: 2rem;
+        margin-right: -17.5vw;
+    }
+
+    .logout{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 300ms ease-in-out;
+        padding: 5px;
+    }
+
+    .logout:hover{
+        background-color: #dadadaaa;
+        padding: 5px;
+        border-radius: 50%;
+        cursor: pointer;
+        opacity: 0.8;
     }
 }
 

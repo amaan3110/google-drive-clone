@@ -38,6 +38,11 @@ const sidebar = () => {
             )
         }
 
+        setTimeout(()=>{
+            setOpen(false);
+            setUploading(false);
+        },20000)
+
     }
 
 const notify = () => toast.error("Service Unavailable !");

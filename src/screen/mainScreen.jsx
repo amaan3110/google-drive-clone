@@ -5,7 +5,14 @@ import 'boxicons'
 import './mainScreen.scss'
 import drive from '../assets/google-drive.png'
 
+import { auth } from '../../firebase'
+
 const mainScreen = () => {
+
+
+    const logOut = ()=>{
+        auth.signOut();
+    }
   return (
     <>
         <div className="app-bar">
@@ -19,10 +26,12 @@ const mainScreen = () => {
                 <box-icon name='analyse'></box-icon>
             </div>
 
-            <div className="component">
+            <div className="setting">
                 <box-icon name='cog'></box-icon>
                 <box-icon name='customize'></box-icon>
-                <box-icon type='solid' name='user-account'></box-icon>
+            </div>
+            <div className="logout" onClick={logOut}>
+                <box-icon name='user-pin'size='md'></box-icon>
             </div>
 
         </div>

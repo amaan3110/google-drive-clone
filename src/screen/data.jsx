@@ -24,11 +24,11 @@ const data = () => {
             <div className="data">
                 <div className="data-grid">
                     <div className="data-grid-file">
-                        <box-icon type='solid' name='file-blank'></box-icon>
+                        <box-icon type='solid' name='file-blank'size='lg'></box-icon>
                         <p>File.docx</p>
                     </div>
                     <div className="data-grid-file">
-                        <box-icon type='solid' name='file-blank'></box-icon>
+                        <box-icon type='solid' name='file-blank' size='lg'></box-icon>
                         <p>clg.pdf</p>
                     </div>
                 </div>
