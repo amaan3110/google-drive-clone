@@ -6,7 +6,7 @@
 <p>1. step 1</p>
 
 ```
-git clone https://github.com/amaan3110/keep-docs.git
+git clone https://github.com/amaan3110/google-drive-clone.git
 ```
 
 <p>2. step 2</p>
