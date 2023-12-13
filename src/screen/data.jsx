@@ -1,49 +1,59 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import './data.scss'
-import 'boxicons'
-import { storage } from '../../firebase'
-import { listAll, ref } from 'firebase/storage'
+import { collection } from 'firebase/firestore'
+import { firestore } from '../../firebase'
+import { getDocs } from 'firebase/firestore'
 
 const data = () => {
 
-    const [files, setFiles] = React.useState([]);
+    const [fileData, setFileData] = React.useState([]);
 
-    useEffect(()=>{
-        const fetchFiles = async ()=>{
-            const storageRef = ref(storage);
-            const filesList = await listAll(storageRef);
+    const fetchFileData = async () => {
+        const filesCollection = collection(firestore, 'files');
+        const querySnapshot = await getDocs(filesCollection);
+        const data = [];
 
-            const fileNames = filesList.items.map((item) => item.name);
-            setFiles(fileNames);
-        };
+        querySnapshot.forEach((doc) => {
+            const file = doc.data();
+            data.push({
+                fileName: file.fileName,
+                downloadURL: file.downloadURL,
+                fileSize: file.fileSize,
+                timestamp: file.timestamp, 
+            });
+        });
 
-        fetchFiles();
-    }, [])
+        setFileData(data);
+    };
+
+    useEffect(() => {
+        fetchFileData();
+    }, []);
     return (
         <>
             <div className="data">
-                <div className="data-grid">
-                    <div className="data-grid-file">
-                        <box-icon type='solid' name='file-blank'size='lg'></box-icon>
-                        <p>File.docx</p>
-                    </div>
-                    <div className="data-grid-file">
-                        <box-icon type='solid' name='file-blank' size='lg'></box-icon>
-                        <p>clg.pdf</p>
-                    </div>
-                </div>
                 <div className="data-row">
                     <div className="data-header">
                         <span><b>Name <box-icon name='down-arrow-alt' ></box-icon></b></span>
                         <span><b>Time</b></span>
                         <span><b>Date</b></span>
                         <span><b>File size</b></span>
+                        <span><b>View File</b></span>
                     </div>
-                    <div className="file-info">
-                        <p><box-icon name='file'></box-icon> img-09939...</p>
-                        <p>19:22</p>
-                        <p>12/07/2022</p>
-                        <p>76.88kb</p>
+                    <div>
+                        {fileData.map((file, index) => (
+                            <div key={index} className="file-info">
+                                <div>
+                                <p className='fileName'>{file.fileName}</p>
+                                <p>{file.timestamp.toDate().toLocaleTimeString()}</p>
+                                <p>{file.timestamp.toDate().toLocaleDateString()}</p>
+                                <p>{file.fileSize}kb</p>
+                                <a href={file.downloadURL} target="_blank" rel="noopener noreferrer">
+                                    View File
+                                </a>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
